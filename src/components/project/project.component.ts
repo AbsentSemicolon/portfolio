@@ -1,10 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
+import { NgxMasonryModule } from "ngx-masonry";
 
 @Component({
     selector: "app-project",
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, NgxMasonryModule],
     templateUrl: "./project.component.html",
     styleUrl: "./project.component.scss"
 })
