@@ -1,0 +1,8 @@
+li {
+    display: flex;
+    margin: 0 0 0.25rem;
+
+    p:after {
+        content: "\00a0"; // Insert space after title
+    }
+}
