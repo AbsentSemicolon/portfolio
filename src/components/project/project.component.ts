@@ -10,6 +10,7 @@ import { NgxMasonryModule } from "ngx-masonry";
     styleUrl: "./project.component.scss"
 })
 export class ProjectComponent {
+    masonryOptions = {};
     projects = [
         {
             name: "Application Tracker",

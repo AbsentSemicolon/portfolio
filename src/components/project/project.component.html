@@ -1,41 +1,53 @@
-<ngx-masonry [options]="{ animations: {}, gutter: 10 }">
+<ngx-masonry
+    [options]="{
+        animations: {},
+        itemSelector: '.masonry-item',
+        percentPosition: true
+    }"
+    class="grid"
+>
+    <div class="gutter-sizer"></div>
     <article
         ngxMasonryItem
         class="masonry-item"
         *ngFor="let project of projects"
     >
-        <h3>
-            <a href="{{ project.link }}" *ngIf="project.link">{{
-                project.name
-            }}</a>
-            <span *ngIf="!project.link">{{ project.name }}</span>
-        </h3>
-        <ul>
-            <li class="multilevel">
-                <p>Language(s):</p>
-                <ul>
-                    <li *ngFor="let lang of project.languageList">
-                        {{ lang }}
-                    </li>
-                </ul>
-            </li>
-            <li class="multilevel" *ngIf="project.frameworkList.length">
-                <p>Framework(s):</p>
-                <ul>
-                    <li *ngFor="let fw of project.frameworkList">{{ fw }}</li>
-                </ul>
-            </li>
-            <li *ngIf="project.github !== 'private'">
-                <p>GitHub Repository:</p>
-                <a
-                    href="https://github.com/AbsentSemicolon/{{
-                        project.github
-                    }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >{{ project.github }}<sup>🔗</sup></a
-                >
-            </li>
-        </ul>
+        <div>
+            <h3>
+                <a href="{{ project.link }}" *ngIf="project.link">{{
+                    project.name
+                }}</a>
+                <span *ngIf="!project.link">{{ project.name }}</span>
+            </h3>
+            <ul>
+                <li class="multilevel">
+                    <p>Language(s):</p>
+                    <ul>
+                        <li *ngFor="let lang of project.languageList">
+                            {{ lang }}
+                        </li>
+                    </ul>
+                </li>
+                <li class="multilevel" *ngIf="project.frameworkList.length">
+                    <p>Framework(s):</p>
+                    <ul>
+                        <li *ngFor="let fw of project.frameworkList">
+                            {{ fw }}
+                        </li>
+                    </ul>
+                </li>
+                <li *ngIf="project.github !== 'private'">
+                    <p>GitHub Repository:</p>
+                    <a
+                        href="https://github.com/AbsentSemicolon/{{
+                            project.github
+                        }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >{{ project.github }}<sup>🔗</sup></a
+                    >
+                </li>
+            </ul>
+        </div>
     </article>
 </ngx-masonry>

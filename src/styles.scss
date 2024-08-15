@@ -10,13 +10,18 @@ h6,
 p,
 ul,
 li,
-sup {
+sup,
+article,
+div,
+a,
+span {
     padding: 0;
     margin: 0;
     font-size: 100%;
     font: inherit;
     box-sizing: border-box;
     position: relative;
+    line-height: 1;
 }
 
 ul,
@@ -43,4 +48,18 @@ h3 {
 
 sup {
     font-size: 50%;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+    border-bottom: 1px dotted transparent;
+
+    &:visited {
+        color: blue;
+    }
+
+    &:hover {
+        border-bottom-color: blue;
+    }
 }

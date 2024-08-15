@@ -12,5 +12,37 @@ li {
 }
 
 .masonry-item {
-    width: 300px;
+    font-size: 0.8rem;
+    width: 25%;
+    padding: 1rem;
+    border-radius: 3px;
+    background-color: white;
+
+    > div {
+        border: 1px solid lightgrey;
+        border-top-width: 5px;
+        padding: 0.5rem 1rem;
+    }
+}
+
+h3 {
+    margin: 0 0 1rem 0;
+}
+
+@media only screen and (max-width: 1280px) {
+    .masonry-item {
+        width: 33.3333%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .masonry-item {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 666px) {
+    .masonry-item {
+        width: 100%;
+    }
 }
