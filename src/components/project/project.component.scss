@@ -11,8 +11,14 @@ li {
     display: flex;
     margin: 0 0 0.25rem;
 
+    p {
+        width: 200px;
+        overflow: hidden;
+        margin: 0 1px 0 0;
+        text-wrap: nowrap;
+    }
     p:after {
-        content: "\00a0"; // Insert space after title
+        content: "...................................................."; // Insert space after title
     }
 }
 
@@ -20,20 +26,13 @@ h3 {
     margin: 0 0 1rem 0;
 }
 
-@media only screen and (max-width: 1280px) {
-    .masonry-item {
-        width: 33.3333%;
-    }
+.repo {
+    margin: 0 0 1rem 0;
 }
 
-@media only screen and (max-width: 1024px) {
-    .masonry-item {
-        width: 50%;
-    }
-}
-
-@media only screen and (max-width: 666px) {
-    .masonry-item {
+@media only screen and (max-width: 1000px) {
+    .project-list-container {
         width: 100%;
+        margin: 0;
     }
 }
