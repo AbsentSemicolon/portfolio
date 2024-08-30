@@ -1,11 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
-import { NgxMasonryModule } from "ngx-masonry";
+import { LinkComponent } from "../ui/link.component";
 
 @Component({
     selector: "app-project",
     standalone: true,
-    imports: [CommonModule, NgxMasonryModule],
+    imports: [CommonModule, LinkComponent],
     templateUrl: "./project.component.html",
     styleUrl: "./project.component.scss"
 })
@@ -14,14 +14,14 @@ export class ProjectComponent {
     projects = [
         {
             name: "Application Tracker",
-            link: "https://missingsemicolon.net/tracker",
+            link: "https://missingsemicolon.net/tracker?demo=true",
             languageList: ["JavaScript/TypeScript"],
             frameworkList: ["React(v18)", "Tailwind"],
             github: "apply-tracker"
         },
         {
             name: "Portfolio",
-            link: "./",
+            link: "",
             languageList: ["JavaScript/TypeScript"],
             frameworkList: ["Angular(v18.1.0)", "SASS"],
             github: "private"

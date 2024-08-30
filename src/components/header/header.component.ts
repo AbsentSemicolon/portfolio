@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { LinkComponent } from "../ui/link.component";
 
 @Component({
-    selector: 'app-header',
+    selector: "app-header",
     standalone: true,
-    imports: [],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss'
+    imports: [LinkComponent],
+    templateUrl: "./header.component.html",
+    styleUrl: "./header.component.scss"
 })
 export class HeaderComponent {}
