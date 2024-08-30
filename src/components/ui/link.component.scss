@@ -1,0 +1,15 @@
+@import "../../mixin";
+
+a {
+    color: $linkColor;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.material-icons {
+    color: $linkColor;
+    font-size: 75%;
+}

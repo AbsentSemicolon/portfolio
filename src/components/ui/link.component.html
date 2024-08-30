@@ -1,0 +1,8 @@
+<span *ngIf="external">
+    <a href="{{ linkUrl }}" target="_blank" rel="noopener noreferrer"
+        >{{ linkText }}&nbsp;<span class="material-icons">open_in_new</span></a
+    >
+</span>
+<span *ngIf="!external">
+    <a href="{{ linkUrl }}">{{ linkText }}</a>
+</span>
