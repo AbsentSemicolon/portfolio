@@ -23,6 +23,8 @@ jobs:
         run: |
           npm ci
           npm run build
+          cd ./dist/portfolio
+          ls -al
       - uses: actions/upload-pages-artifact@v3.0.1
         name: Upload GitHub Pages artifact
         with:
