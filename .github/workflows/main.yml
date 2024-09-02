@@ -32,7 +32,7 @@ jobs:
           echo ::group::Archive artifact
           tar \
             --dereference --hard-dereference \
-            --directory "$INPUT_PATH" \
+            --directory "${{ github.workspace }}/dist/portfolio/browser/" \
             -cvf "$RUNNER_TEMP/artifact.tar" \
             --exclude=.git \
             --exclude=.github \
