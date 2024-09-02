@@ -4,7 +4,7 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve --open",
-        "build": "ng build --base-href https://absentsemicolon.github.io/portfolio/ && cp CNAME ./dist/portfolio/browser",
+        "build": "ng build --base-href https://missingsemicolon.net && cp CNAME ./dist/portfolio/browser",
         "watch": "ng build --watch --configuration development",
         "test": "ng test"
     },
