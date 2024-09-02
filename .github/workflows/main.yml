@@ -33,7 +33,7 @@ jobs:
           tar \
             --dereference --hard-dereference \
             --directory "${{ github.workspace }}/dist/portfolio/browser/" \
-            -cvf "$RUNNER_TEMP/artifact.tar" \
+            -cvf "${{ github.workspace }}/artifact.tar" \
             --exclude=.git \
             --exclude=.github \
             .
@@ -45,7 +45,7 @@ jobs:
         with:
           name: github-pages
           # Path of the directory containing the static assets.
-          path: $RUNNER_TEMP/artifact.tar
+          path: ${{ github.workspace }}/artifact.tar
           # Duration after which artifact will expire in days.
           retention-days: 1
   deploy:
