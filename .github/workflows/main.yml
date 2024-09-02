@@ -18,10 +18,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Modules and Build
         run: |
-            npm ci
-            npm run build
+          npm ci
+          npm run build
       - uses: actions/upload-pages-artifact@v3.0.1
-      - name: Upload GitHub Pages artifact
+        name: Upload GitHub Pages artifact
         with:
           name: github-pages
           # Path of the directory containing the static assets.
