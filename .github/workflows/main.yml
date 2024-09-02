@@ -25,12 +25,27 @@ jobs:
           npm run build
           cd ./dist/portfolio/browser
           ls -al
+      - name: Archive artifact
+        shell: sh
+        if: runner.os == 'Linux'
+        run: |
+          echo ::group::Archive artifact
+          tar \
+            --dereference --hard-dereference \
+            --directory "$INPUT_PATH" \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude=.git \
+            --exclude=.github \
+            .
+          echo ::endgroup::
+        env:
+          INPUT_PATH: ${{ inputs.path }}
       - uses: actions/upload-pages-artifact@v3.0.1
         name: Upload GitHub Pages artifact
         with:
           name: github-pages
           # Path of the directory containing the static assets.
-          path: ${{ github.workspace }}/dist/portfolio/**
+          path: "$RUNNER_TEMP/artifact.tar"
           # Duration after which artifact will expire in days.
           retention-days: 1
   deploy:
