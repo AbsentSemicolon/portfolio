@@ -28,7 +28,7 @@ jobs:
         with:
           name: github-pages
           # Path of the directory containing the static assets.
-          path: dist/portfolio/browser/**
+          path: ${{ github.workspace }}/dist/portfolio/browser/**
           # Duration after which artifact will expire in days.
           retention-days: 1
   deploy:
