@@ -45,7 +45,7 @@ jobs:
         with:
           name: github-pages
           # Path of the directory containing the static assets.
-          path: "$RUNNER_TEMP/artifact.tar"
+          path: $RUNNER_TEMP/artifact.tar
           # Duration after which artifact will expire in days.
           retention-days: 1
   deploy:
