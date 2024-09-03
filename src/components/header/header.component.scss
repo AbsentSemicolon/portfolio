@@ -40,13 +40,10 @@ header {
     }
 }
 
-@media only screen and (max-width: 1280px) {
-}
-
 @media only screen and (max-width: 1000px) {
     header {
         height: auto;
-        margin: 0 0 2.4rem;
+        margin: 2.4rem 0;
 
         .header-content {
             flex-direction: column;
@@ -65,32 +62,36 @@ header {
 }
 
 @media only screen and (max-width: 666px) {
-    .header-content {
-        flex-direction: column;
+    header {
+        margin: 1.5rem 0;
 
-        img {
-            height: 50px;
-        }
+        .header-content {
+            flex-direction: column;
 
-        h2,
-        h1 {
-            width: 100%;
-        }
+            img {
+                height: 50px;
+            }
 
-        h1 {
-            font-size: 5rem;
-        }
+            h2,
+            h1 {
+                width: 100%;
+            }
 
-        h2 {
-            font-size: 2.5rem;
-        }
+            h1 {
+                font-size: 5rem;
+            }
 
-        .header-left {
-            margin: 0 0 1.5rem;
-        }
+            h2 {
+                font-size: 2.5rem;
+            }
 
-        .header-right {
-            padding: 0 0 0 50px;
+            .header-left {
+                margin: 0 0 1.5rem;
+            }
+
+            .header-right {
+                padding: 0 0 0 50px;
+            }
         }
     }
 }
