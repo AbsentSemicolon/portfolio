@@ -6,3 +6,10 @@ $linkColor: #9900ff;
     font-weight: 400;
     font-style: normal;
 }
+
+@mixin font-thin {
+    font-family: "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}

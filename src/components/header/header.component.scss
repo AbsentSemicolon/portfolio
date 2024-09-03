@@ -1,23 +1,41 @@
+@import "../../mixin";
+
 header {
     display: flex;
     align-items: center;
+    height: 110px;
 
     img {
-        width: 80px;
+        width: auto;
         height: 80px;
+    }
+
+    .separator {
+        margin: 0 2.4rem;
+        height: calc(100% - 5rem);
     }
 
     .header-content {
         display: flex;
         align-items: center;
+        height: 100%;
+    }
+
+    h1 {
+        @include font-thin();
     }
 
     h2 {
-        display: flex;
+        @include font-thin();
+    }
 
-        span {
-            display: block;
-            white-space: nowrap;
+    .header-left {
+        display: flex;
+    }
+
+    .header-right {
+        p {
+            font-size: 1.5rem;
         }
     }
 }
@@ -25,28 +43,54 @@ header {
 @media only screen and (max-width: 1280px) {
 }
 
-@media only screen and (max-width: 1024px) {
-    h2,
-    h1 {
-        width: 50%;
-    }
+@media only screen and (max-width: 1000px) {
+    header {
+        height: auto;
+        margin: 0 0 2.4rem;
 
-    h2 {
-        flex-direction: column;
+        .header-content {
+            flex-direction: column;
+        }
+
+        br,
+        .separator {
+            display: none;
+        }
+
+        .header-right {
+            width: 100%;
+            padding: 0 0 0 80px;
+        }
     }
 }
 
 @media only screen and (max-width: 666px) {
     .header-content {
         flex-direction: column;
-    }
 
-    h2,
-    h1 {
-        width: 100%;
-    }
+        img {
+            height: 50px;
+        }
 
-    h2 {
-        flex-direction: row;
+        h2,
+        h1 {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        .header-left {
+            margin: 0 0 1.5rem;
+        }
+
+        .header-right {
+            padding: 0 0 0 50px;
+        }
     }
 }
