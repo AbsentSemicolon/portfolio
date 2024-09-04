@@ -86,7 +86,7 @@ export class ProjectComponent {
                     link: ""
                 }
             ],
-            github: "private",
+            github: "portfolio",
             thirdPartyList: [
                 {
                     name: "SASS"

@@ -3,16 +3,11 @@
 header {
     display: flex;
     align-items: center;
-    height: 110px;
+    margin: 2.4rem 0;
 
     img {
         width: auto;
-        height: 80px;
-    }
-
-    .separator {
-        margin: 0 2.4rem;
-        height: calc(100% - 5rem);
+        height: 70px;
     }
 
     .header-content {
@@ -31,11 +26,19 @@ header {
 
     .header-left {
         display: flex;
+        padding: 0 2.4rem 0 0;
+        border-right: 2px solid;
+        margin: 0 2.4rem 0 0;
     }
 
     .header-right {
-        p {
-            font-size: 1.5rem;
+        nav {
+            margin: 1rem 0 0;
+            font-size: 2rem;
+
+            app-link {
+                margin: 0 2.4rem 0 0;
+            }
         }
     }
 }
@@ -43,28 +46,29 @@ header {
 @media only screen and (max-width: 1000px) {
     header {
         height: auto;
-        margin: 2.4rem 0;
 
         .header-content {
             flex-direction: column;
         }
 
-        br,
-        .separator {
+        br {
             display: none;
+        }
+
+        .header-left {
+            padding: 0;
+            border: none;
         }
 
         .header-right {
             width: 100%;
-            padding: 0 0 0 80px;
+            padding: 0 0 0 70px;
         }
     }
 }
 
 @media only screen and (max-width: 666px) {
     header {
-        margin: 1.5rem 0;
-
         .header-content {
             flex-direction: column;
 
