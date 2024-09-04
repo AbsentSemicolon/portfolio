@@ -1,60 +1,57 @@
 name: Build and Deploy Portfolio
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+    # Triggers the workflow on push or pull request events but only for the "main" branch
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
+    workflow_dispatch:
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    name: My Job
-    runs-on: ubuntu-latest
-    strategy:
+    # This workflow contains a single job called "build"
+    build:
+        name: My Job
+        runs-on: ubuntu-latest
+        strategy:
             matrix:
                 node-version: [20.x]
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Modules and Build
-        run: |
-          npm ci
-          npm run build
-          cd ./dist/portfolio/browser
-          ls -al
-      - name: Archive artifact
-        shell: sh
-        if: runner.os == 'Linux'
-        run: |
-          echo ::group::Archive artifact
-          tar \
-            --dereference --hard-dereference \
-            --directory "${{ github.workspace }}/dist/portfolio/browser/" \
-            -cvf "${{ github.workspace }}/artifact.tar" \
-            --exclude=.git \
-            --exclude=.github \
-            .
-          echo ::endgroup::
-        env:
-          INPUT_PATH: ${{ inputs.path }}
-      - uses: actions/upload-artifact@v4
-        name: Upload GitHub Pages artifact
-        with:
-          name: github-pages
-          # Path of the directory containing the static assets.
-          path: ${{ github.workspace }}/artifact.tar
-          # Duration after which artifact will expire in days.
-          retention-days: 1
-  deploy:
-      environment:
-        name: github-pages
-        url: ${{ steps.deployment.outputs.page_url }}
-      permissions:
-        id-token: write
-        pages: write
-      runs-on: ubuntu-latest
-      needs: build
-      steps:
-        - name: Deploy to GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v4.0.5
+        steps:
+            - uses: actions/checkout@v4
+            - name: Install Modules and Build
+              run: |
+                  npm ci
+                  npm run build
+            - name: Archive artifact
+              shell: sh
+              run: |
+                  echo ::group::Archive artifact
+                  tar \
+                    --dereference --hard-dereference \
+                    --directory "${{ github.workspace }}/dist/portfolio/browser/" \
+                    -cvf "${{ github.workspace }}/artifact.tar" \
+                    --exclude=.git \
+                    --exclude=.github \
+                    .
+                  echo ::endgroup::
+              env:
+                  INPUT_PATH: ${{ inputs.path }}
+            - uses: actions/upload-artifact@v4
+              name: Upload GitHub Pages artifact
+              with:
+                  name: github-pages
+                  # Path of the directory containing the static assets.
+                  path: ${{ github.workspace }}/artifact.tar
+                  # Duration after which artifact will expire in days.
+                  retention-days: 1
+    deploy:
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        permissions:
+            id-token: write
+            pages: write
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4.0.5
