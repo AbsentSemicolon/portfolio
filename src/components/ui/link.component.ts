@@ -19,8 +19,7 @@ import { CommonModule } from "@angular/common";
     selector: "app-link",
     standalone: true,
     imports: [CommonModule],
-    templateUrl: "./link.component.html",
-    styleUrl: "./link.component.scss"
+    templateUrl: "./link.component.html"
 })
 export class LinkComponent {
     @Input() linkUrl: string = "";

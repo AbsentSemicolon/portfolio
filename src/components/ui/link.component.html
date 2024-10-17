@@ -1,8 +1,14 @@
 <span *ngIf="external">
-    <a href="{{ linkUrl }}" target="_blank" rel="noopener noreferrer"
-        >{{ linkText }}&nbsp;<span class="material-icons">open_in_new</span></a
+    <a
+        href="{{ linkUrl }}"
+        class="text-link border-b-2 border-[transparent] hover:border-link/80 hover:text-link/80 transition-colors duration-300 ease-in-out"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ linkText }}&nbsp;<span class="material-icons text-[75%]"
+            >open_in_new</span
+        ></a
     >
 </span>
 <span *ngIf="!external">
-    <a href="{{ linkUrl }}">{{ linkText }}</a>
+    <a class="text-link hover:underline" href="{{ linkUrl }}">{{ linkText }}</a>
 </span>
