@@ -31,7 +31,8 @@ export class ProjectListComponent {
             github: "apply-tracker",
             thirdPartyList: [
                 {
-                    name: "Tailwind"
+                    name: "Tailwind",
+                    link: "https://tailwindcss.com/"
                 },
                 {
                     name: "Radix Primitives",
