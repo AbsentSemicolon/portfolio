@@ -1,7 +1,7 @@
-<div class="project-list-container px-[50px] sm:px-[70px] w-full md:w-[666px]">
+<div class="project-list-container w-full px-[50px] sm:px-[70px] md:w-[666px]">
     @for (project of projectList; track $index) {
         <article
-            class="mb-10 text-4xl border-b pb-10 last:border-b-0 sm:text-[2rem]"
+            class="b-col mb-10 border-b pb-10 text-4xl last:border-b-0 sm:text-[2rem]"
         >
             <div>
                 <app-project [project]="project" />

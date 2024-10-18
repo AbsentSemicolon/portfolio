@@ -7,7 +7,7 @@
     ></app-link>
     <span *ngIf="!project.link">{{ project.name }}</span>
 </h3>
-<div *ngIf="project.github !== 'private'" class="flex mb-4">
+<div *ngIf="project.github !== 'private'" class="mb-4 flex">
     <p class="w-[225px] overflow-hidden text-nowrap">Repository</p>
     <app-link
         linkUrl="https://github.com/AbsentSemicolon/{{ project.github }}"

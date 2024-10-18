@@ -1,4 +1,4 @@
-<div class="flex mb-4 sh" *ngIf="linkList.length">
+<div class="sh mb-4 flex" *ngIf="linkList.length">
     <p class="w-[225px] overflow-hidden text-nowrap">
         {{ name }}<span *ngIf="linkList.length > 1">s</span>
     </p>
@@ -17,7 +17,7 @@
             </span>
             <span *ngIf="!link.link">{{ link.name }}</span>
             <span
-                class="text-[75%] text-version align-baseline"
+                class="align-baseline text-[75%] text-version"
                 *ngIf="link.version"
                 >&nbsp;(v{{ link.version }})</span
             >

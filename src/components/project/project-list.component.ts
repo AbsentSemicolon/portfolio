@@ -75,6 +75,10 @@ export class ProjectListComponent {
                 },
                 {
                     name: "Google Icons"
+                },
+                {
+                    name: "Tailwind",
+                    link: "https://tailwindcss.com/"
                 }
             ],
             linkList: [
