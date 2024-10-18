@@ -1,89 +1,37 @@
-<div class="project-list-container">
-    <article *ngFor="let project of projectList">
-        <div>
-            <h3>
-                <app-link
-                    *ngIf="project.link"
-                    [linkUrl]="project.link"
-                    [linkText]="project.name"
-                    external="true"
-                ></app-link>
-                <span *ngIf="!project.link">{{ project.name }}</span>
-            </h3>
-            <p *ngIf="project.github !== 'private'" class="repo">
-                Repository:
-                <app-link
-                    linkUrl="https://github.com/AbsentSemicolon/{{
-                        project.github
-                    }}"
-                    [linkText]="project.github"
-                    external="true"
-                ></app-link>
-            </p>
-            <ul>
-                <li class="multilevel">
-                    <p>Language(s)</p>
-                    <ul>
-                        <li *ngFor="let lang of project.languageList">
-                            {{ lang.name
-                            }}<span class="version" *ngIf="lang.version"
-                                >&nbsp;(v{{ lang.version }})</span
-                            >
-                        </li>
-                    </ul>
-                </li>
-                <li class="multilevel" *ngIf="project.frameworkList.length">
-                    <p>
-                        Framework<span *ngIf="project.frameworkList.length > 1"
-                            >(s)</span
-                        >
-                    </p>
-                    <ul>
-                        <li *ngFor="let fw of project.frameworkList">
-                            {{ fw.name
-                            }}<span class="version" *ngIf="fw.version"
-                                >&nbsp;(v{{ fw.version }})</span
-                            >
-                        </li>
-                    </ul>
-                </li>
-                <li class="multilevel" *ngIf="project.thirdPartyList.length">
-                    <p>Notable Technology</p>
-                    <ul>
-                        <li *ngFor="let tech of project.thirdPartyList">
-                            <span *ngIf="tech.link">
-                                <app-link
-                                    [linkUrl]="tech.link"
-                                    [linkText]="tech.name"
-                                    external="true"
-                                >
-                                </app-link>
-                            </span>
-                            <span *ngIf="!tech.link">{{ tech.name }}</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="multilevel" *ngIf="project.linkList.length">
-                    <p>
-                        Project Link<span *ngIf="project.linkList.length > 1"
-                            >s</span
-                        >
-                    </p>
-                    <ul>
-                        <li *ngFor="let link of project.linkList">
-                            <span *ngIf="link.link">
-                                <app-link
-                                    [linkUrl]="link.link"
-                                    [linkText]="link.name"
-                                    external="true"
-                                >
-                                </app-link>
-                            </span>
-                            <span *ngIf="!link.link">{{ link.name }}</span>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </article>
+<h3 class="mb-4">
+    <app-link
+        *ngIf="project.link"
+        [linkUrl]="project.link"
+        [linkText]="project.name"
+        external="true"
+    ></app-link>
+    <span *ngIf="!project.link">{{ project.name }}</span>
+</h3>
+<div *ngIf="project.github !== 'private'" class="flex mb-4">
+    <p class="w-[225px] overflow-hidden text-nowrap">Repository</p>
+    <app-link
+        linkUrl="https://github.com/AbsentSemicolon/{{ project.github }}"
+        [linkText]="project.github"
+        external="true"
+    ></app-link>
 </div>
+<app-project-detail
+    class="mb-6 block"
+    [linkList]="project.languageList"
+    [name]="'Language'"
+/>
+<app-project-detail
+    class="mb-6 block"
+    [linkList]="project.frameworkList"
+    [name]="'Framework'"
+/>
+<app-project-detail
+    class="mb-6 block"
+    [linkList]="project.thirdPartyList"
+    [name]="'Third Party Tech'"
+/>
+<app-project-detail
+    class="block"
+    [linkList]="project.linkList"
+    [name]="'Project Link'"
+/>

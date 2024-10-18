@@ -1,0 +1,23 @@
+<div class="flex mb-4 sh" *ngIf="linkList.length">
+    <p class="w-[225px] overflow-hidden text-nowrap">
+        {{ name }}<span *ngIf="linkList.length > 1">s</span>
+    </p>
+    <ul>
+        <li *ngFor="let link of linkList" class="mb-2 last:mb-0">
+            <span *ngIf="link.link">
+                <app-link
+                    [linkUrl]="link.link"
+                    [linkText]="link.name"
+                    external="true"
+                >
+                </app-link>
+            </span>
+            <span *ngIf="!link.link">{{ link.name }}</span>
+            <span
+                class="text-[75%] text-version align-baseline"
+                *ngIf="link.version"
+                >&nbsp;(v{{ link.version }})</span
+            >
+        </li>
+    </ul>
+</div>
