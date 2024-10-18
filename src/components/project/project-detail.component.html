@@ -3,7 +3,10 @@
         {{ name }}<span *ngIf="linkList.length > 1">s</span>
     </p>
     <ul>
-        <li *ngFor="let link of linkList" class="mb-2 last:mb-0">
+        <li
+            *ngFor="let link of linkList | orderBy: 'name'"
+            class="mb-2 last:mb-0"
+        >
             <span *ngIf="link.link">
                 <app-link
                     [linkUrl]="link.link"

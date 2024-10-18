@@ -39,11 +39,11 @@ export class ProjectListComponent {
                     link: "https://www.radix-ui.com/primitives"
                 },
                 {
-                    name: "react-responsive-masonry",
+                    name: "React Responsive Masonry",
                     link: "https://www.npmjs.com/package/react-responsive-masonry"
                 },
                 {
-                    name: "react-google-charts",
+                    name: "React Google Charts",
                     link: "https://www.react-google-charts.com/"
                 }
             ],
